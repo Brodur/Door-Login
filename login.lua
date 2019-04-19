@@ -1,7 +1,7 @@
 --- Login
 -- Authenticates users via username to access a door
 -- @Author: Brodur
--- @Version: 1.0
+-- @Version: 2.0
 -- @Requires: menu.lua, serialutils.lua
 
 local component = require("component")
@@ -160,7 +160,7 @@ function program_loaded()
         computer.beep(600)
         print("Welcome", user)
         openClose()
-        computer.beep(500, 1)
+        computer.beep(500, 0.5)
       end
     else
       print("Not welcome", user)
