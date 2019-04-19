@@ -15,8 +15,11 @@ local computer = require("computer")
 
 local rs = component.redstone
 
-local wait = 4 -- How long to hold the door open
+---Variables you should probably define
+local wait = 4          -- How long to hold the door open
 local side = sides.west --What side the door is on
+---End
+
 local rsOutput = {max=15, min=0}
 local users = {}
 local menuOpts = {"User list", "Add User", "Remove User", "Return","End Program"}
