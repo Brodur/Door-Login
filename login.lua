@@ -65,8 +65,8 @@ function manage()
     if opt == #menuOpts then watching = false break end
     if opt == #menuOpts - 1 then break end
     if opt == 1 then
+      print("Users:\n")
       for username,_ in pairs(users) do 
-        print("Users:\n")
         print(username) 
       end
       print("Press enter to continue...")
@@ -85,7 +85,7 @@ function manage()
       for username,_ in pairs(users) do userList[#userList] = username end
       local select = -1
       while select ~= 1 do
-        select = menu.list(users, "Select a user")
+        select = menu.list(userList, "Select a user")
         if opt ~= 1 then
           local player = userList[select]
           local confirm = menu.dialog("Remove \'" .. player .. "\' from trusted users?", "Confirm", "Cancel")
