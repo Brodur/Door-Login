@@ -152,7 +152,7 @@ function program_loaded()
     welcome()
     _,_,_,key,user = event.pull("key_down")
     if users[user] ~= nil then
-      if key == 184 or key == 29 and users[user] then --press R-ALT or UK R-Alt/lcontrol
+      if key == 184 or key == 29 and users[user] then --press R-ALT or UK R-Alt, which equates to L-Control
         computer.beep(200)
         manage()
         computer.beep(100)
