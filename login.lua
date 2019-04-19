@@ -12,10 +12,11 @@ local rs = component.redstone
 local wait = 4 -- How long to hold the door open
 local side = sides.west --What side the door is on
 local rsOutput = {max=15, min=0}
+local defaultUsers = {Brodur=true, crassclown=true}
 local users = {}
 local menuOpts = {"User list", "Add User", "Remove User", "Return","End Program"}
 local watching = true
-local configDir = "users.lua"
+local configDir = "/home/users.lua"
 
 
 --- Trims strings
@@ -82,11 +83,11 @@ function manage()
     end
     if opt == 3 then
       local userList = {"Cancel"}
-      for username,_ in pairs(users) do userList[#userList] = username end
+      for username,_ in pairs(users) do userList[#userList+1] = username end
       local select = -1
       while select ~= 1 do
         select = menu.list(userList, "Select a user")
-        if opt ~= 1 then
+        if select ~= 1 then
           local player = userList[select]
           local confirm = menu.dialog("Remove \'" .. player .. "\' from trusted users?", "Confirm", "Cancel")
           if confirm == 1 then 
@@ -101,8 +102,7 @@ end
 
 function loadConfig()
   if not fs.exists(configDir) then
-    tbl = {Brodur=true, crassclown=true, fatso12321=true, Ouhai_ruby=true}
-    sz.save(tbl, configDir)
+    sz.save(defaultUsers, configDir)
   end
   users = sz.load(configDir)
 end
@@ -130,6 +130,7 @@ function program_loaded()
       computer.beep(400)
     end
   end
+  computer.beep(1000)
   sz.save(users, configDir)
 end
 
