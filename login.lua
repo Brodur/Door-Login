@@ -1,3 +1,9 @@
+--- Login
+-- Authenticates users via username to access a door
+-- @Author: Brodur
+-- @Version: 1.0
+-- @Requires: menu.lua, serialutils.lua
+
 local component = require("component")
 local sides = require("sides")
 local sz = require("serialutils")
